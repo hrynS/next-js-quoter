@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "precommit": "lint-staged",
-    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
     "prettify": "./node_modules/.bin/prettier --write './src/**/*.{,ts,tsx}'"
   },
   "dependencies": {

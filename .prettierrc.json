@@ -1,13 +1,13 @@
 {
-  "tabWidth":4,
-  "singleQuote":true,
-  "trailingComma":"es5",
-  "overrides":[
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "overrides": [
     {
-      "files":"src/**/*.ts?(x)",
-      "options":{
-        "trailingComma":"all",
-        "parser":"typescript"
+      "files": "src/**/*.ts?(x)",
+      "options": {
+        "trailingComma": "all",
+        "parser": "typescript"
       }
     }
   ]

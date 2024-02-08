@@ -1,5 +1,5 @@
-import { mockQuotes } from "@/app/constants";
-import Link from "next/link";
+import { mockQuotes } from '@/app/constants';
+import Link from 'next/link';
 
 export default function Home() {
   const { authorId, author, content, source } = mockQuotes[1];
@@ -10,7 +10,7 @@ export default function Home() {
           {content}
         </p>
         <div>
-          <Link href={`/author/${authorId}`}>{author}</Link>
+          <Link href={`/authors/${authorId}`}>{author}</Link>
           <div>{source}</div>
         </div>
       </div>

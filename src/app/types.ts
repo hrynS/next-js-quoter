@@ -1,6 +1,17 @@
+export interface IAuthor {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export interface IQuote {
-    authorId: number;
-    author: string;
-    content: string;
-    source: string;
+  id: number;
+  authorId: number;
+  author: string;
+  content: string;
+  source: string;
+}
+
+export interface IParamsWithId {
+  id: string;
 }
