@@ -1,7 +1,8 @@
 import { IAuthor, IQuote } from '@/app/types';
 
-export const FETCH_ERROR_MESSAGE =
-  'Ooops! Something went wrong while fetching. Try again later';
+export const DEFAULT_SERVER_ERROR = 'Internal server error' as const;
+export const ERROR_STATUS_VALUE = 'error' as const;
+export const FETCH_ERROR_MESSAGE = 'Ooops! Something went wrong while fetching';
 export const mockAuthors: IAuthor[] = [
   {
     id: 1,
@@ -15,7 +16,6 @@ export const mockAuthors: IAuthor[] = [
     description: 'українська поетеса-шістдесятниця, письменниця та дисидентка.',
   },
 ];
-
 export const mockQuotes: IQuote[] = [
   {
     id: 1,

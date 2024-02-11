@@ -1,9 +1,11 @@
-import { mockAuthors, mockQuotes } from '@/app/constants';
 import { IAuthor, IParamsWithId } from '@/app/types';
+import { ERROR_STATUS_VALUE, mockAuthors } from '@/constants';
 
-export async function generateStaticParams(): Array<{
-  id: string;
-}> {
+export async function generateStaticParams(): Promise<
+  Array<{
+    id: string;
+  }>
+> {
   const authors = await new Promise<IAuthor[]>((resolve) => {
     resolve(mockAuthors);
   });
@@ -13,15 +15,15 @@ export async function generateStaticParams(): Array<{
   }));
 }
 
-export async function getAuthor(params: IParamsWithId) {
+export async function getAuthor({ id }: IParamsWithId) {
   try {
-    const author = await new Promise((resolve) => {
-      resolve(mockAuthors.find((author) => author.id == params.id));
-    });
+    const data = await fetch(
+      `${process.env.PUBLIC_BASE_URL}/authors/${id}/api`,
+    ).then((res) => res.json());
 
-    if (!author) throw new Error('Sorry, there is no author in this URL((');
+    if (data.status === ERROR_STATUS_VALUE) throw new Error(data.message);
 
-    return author;
+    return data;
   } catch (e) {
     throw e;
   }
@@ -35,13 +37,16 @@ export default async function Author({ params }: { params: IParamsWithId }) {
       <h1 className="text-3xl font-extrabold text-gray-900 mb-8">
         About The Author
       </h1>
-      <div className="py-12 ">
+      <div className="py-12">
         <div
           key={author.id}
           className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
         >
           <div className="md:flex">
             <div className="p-8">
+              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                Author Name
+              </div>
               <p className="block mt-1 text-lg leading-tight font-medium text-black">
                 {author.name}
               </p>

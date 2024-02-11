@@ -1,12 +1,11 @@
-import { mockAuthors } from '@/app/constants';
 import { IAuthor } from '@/app/types';
 import Link from 'next/link';
 
 export async function getAuthors(): Promise<IAuthor[]> {
   try {
-    return await new Promise<IAuthor[]>((resolve) => {
-      resolve(mockAuthors);
-    });
+    return await fetch(`${process.env.PUBLIC_BASE_URL}/authors/api`).then(
+      (res) => res.json(),
+    );
   } catch (e) {
     throw e;
   }

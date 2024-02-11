@@ -1,4 +1,4 @@
-import { mockQuotes } from '@/app/constants';
+import { mockQuotes } from '@/constants';
 import Link from 'next/link';
 
 export default function Home() {
