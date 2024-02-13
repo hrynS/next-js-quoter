@@ -1,5 +1,6 @@
 import { IAuthor } from '@/app/types';
-import { DEFAULT_SERVER_ERROR, mockAuthors } from '@/constants';
+import { mockAuthors } from '@/constants';
+import { DEFAULT_SERVER_ERROR } from '@/constants/errors';
 import { serverErrorResponse } from '@/utils/errorResponse';
 
 export const revalidate = 10;

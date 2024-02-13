@@ -1,5 +1,12 @@
 import { IAuthor } from '@/app/types';
+import { PageHeader } from '@/components';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'The authors I read',
+  description: 'What a useless app is this?',
+};
 
 export async function getAuthors(): Promise<IAuthor[]> {
   try {
@@ -15,9 +22,7 @@ export default async function Authors() {
   const authors = await getAuthors();
   return (
     <>
-      <h1 className="text-3xl font-extrabold text-gray-900 mb-8">
-        The Authors I Read
-      </h1>
+      <PageHeader>The Authors I Read</PageHeader>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-wrap justify-center gap-2">
         {authors.map(({ name, id }) => {
           return (

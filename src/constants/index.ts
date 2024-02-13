@@ -1,8 +1,5 @@
 import { IAuthor, IQuote } from '@/app/types';
 
-export const DEFAULT_SERVER_ERROR = 'Internal server error' as const;
-export const ERROR_STATUS_VALUE = 'error' as const;
-export const FETCH_ERROR_MESSAGE = 'Ooops! Something went wrong while fetching';
 export const mockAuthors: IAuthor[] = [
   {
     id: 1,
@@ -33,3 +30,9 @@ export const mockQuotes: IQuote[] = [
     source: 'роман "Записки українського самашедшего"',
   },
 ];
+
+export const NAV_ITEMS_TO_HREF = {
+  Home: '/',
+  About: '/about',
+  Authors: '/authors',
+};

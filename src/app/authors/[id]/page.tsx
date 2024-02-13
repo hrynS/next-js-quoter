@@ -1,14 +1,30 @@
 import { IAuthor, IParamsWithId } from '@/app/types';
-import { ERROR_STATUS_VALUE, mockAuthors } from '@/constants';
+import { ERROR_STATUS_VALUE } from '@/constants/errors';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({
+  params: { id },
+}: {
+  params: IParamsWithId;
+}): Promise<Metadata> {
+  const data: IAuthor = await fetch(
+    `${process.env.PUBLIC_BASE_URL}/authors/${id}/api`,
+  ).then((res) => res.json());
+
+  return {
+    title: `About ${data?.name}`,
+    description: 'What a useless app is this?',
+  };
+}
 
 export async function generateStaticParams(): Promise<
   Array<{
     id: string;
   }>
 > {
-  const authors = await new Promise<IAuthor[]>((resolve) => {
-    resolve(mockAuthors);
-  });
+  const authors: IAuthor[] = await fetch(
+    `${process.env.PUBLIC_BASE_URL}/authors/api`,
+  ).then((res) => res.json());
 
   return authors.map(({ id }) => ({
     id: id.toString(),

@@ -1,6 +1,6 @@
 'use client';
 
-import { FETCH_ERROR_MESSAGE } from '@/constants';
+import { FETCH_ERROR_MESSAGE } from '@/constants/errors';
 
 export default function Error({
   error,
