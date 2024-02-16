@@ -14,7 +14,7 @@ export default function Home() {
         >
           <div className="md:flex">
             <div className="w-full p-8">
-              <p className="text-gray-600 dark:text-gray-400 font-mono text-sm lg:text-base">
+              <p className="dark:text-gray-400 text-lg text-black lg:text-base">
                 {content}
               </p>
               <div className="pt-4 flex justify-between items-center">

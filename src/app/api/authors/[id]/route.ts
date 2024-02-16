@@ -6,7 +6,7 @@ import { errorResponse, serverErrorResponse } from '@/utils/errorResponse';
 export const revalidate = 10;
 
 export async function GET(
-  request: Request,
+  _: Request,
   {
     params: { id },
   }: {

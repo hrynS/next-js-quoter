@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export async function getAuthors(): Promise<IAuthor[]> {
   try {
-    return await fetch(`${process.env.PUBLIC_BASE_URL}/authors/api`).then(
+    return await fetch(`${process.env.PUBLIC_BASE_URL}/api/authors`).then(
       (res) => res.json(),
     );
   } catch (e) {

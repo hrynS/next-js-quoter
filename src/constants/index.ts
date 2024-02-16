@@ -35,4 +35,6 @@ export const NAV_ITEMS_TO_HREF = {
   Home: '/',
   About: '/about',
   Authors: '/authors',
+  // TODO: add submit form powered by server actions
+  // 'Add quote': '/add-quote',
 };

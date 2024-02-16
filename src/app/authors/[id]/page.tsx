@@ -8,7 +8,7 @@ export async function generateMetadata({
   params: IParamsWithId;
 }): Promise<Metadata> {
   const data: IAuthor = await fetch(
-    `${process.env.PUBLIC_BASE_URL}/authors/${id}/api`,
+    `${process.env.PUBLIC_BASE_URL}/api/authors/${id}`,
   ).then((res) => res.json());
 
   return {
@@ -23,7 +23,7 @@ export async function generateStaticParams(): Promise<
   }>
 > {
   const authors: IAuthor[] = await fetch(
-    `${process.env.PUBLIC_BASE_URL}/authors/api`,
+    `${process.env.PUBLIC_BASE_URL}/api/authors`,
   ).then((res) => res.json());
 
   return authors.map(({ id }) => ({
@@ -34,7 +34,7 @@ export async function generateStaticParams(): Promise<
 export async function getAuthor({ id }: IParamsWithId) {
   try {
     const data = await fetch(
-      `${process.env.PUBLIC_BASE_URL}/authors/${id}/api`,
+      `${process.env.PUBLIC_BASE_URL}/api/authors/${id}`,
     ).then((res) => res.json());
 
     if (data.status === ERROR_STATUS_VALUE) throw new Error(data.message);
